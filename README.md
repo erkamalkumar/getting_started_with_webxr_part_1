@@ -1,2 +1,2 @@
-# getting_started_with_webxr_part_1
+#Getting Started With WebXR Part 1 - Creating a Scene
 Finished code for Tutorial
