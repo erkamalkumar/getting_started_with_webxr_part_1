@@ -4,8 +4,10 @@ let renderer = new THREE.WebGLRenderer({ antialias : true });
 let canvas = renderer.domElement;
 container.appendChild(canvas);
 renderer.setSize(window.innerWidth, window.innerHeight);
+
 //Create Scene
 let scene = new THREE.Scene();
+
 //Create a Camera and add it to the scene
 let aspect = window.innerWidth / window.innerHeight;
 let camera = new THREE.PerspectiveCamera(
@@ -16,6 +18,7 @@ let camera = new THREE.PerspectiveCamera(
 );
 camera.position.setY(1.7); //Height of your eyes
 scene.add(camera);
+
 //Create Sphere + Cube
 let sphereRadius = 1;
 let sphereGeometry = new THREE.SphereBufferGeometry(
@@ -36,6 +39,7 @@ let cubeMaterial = new THREE.MeshLambertMaterial({
     color: 0x00FF00 //Green
 });
 let cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
+
 //Group shapes together and add group to the scene
 let shapes = new THREE.Object3D();
 shapes.add(sphereMesh);
@@ -43,13 +47,14 @@ shapes.add(cubeMesh);
 shapes.position.setY(1.7); //Place at eye level
 shapes.position.setZ(-10); //Move shape forward so we can see it
 scene.add(shapes);
+
 //Add light to the scene
 let light = new THREE.PointLight();
 light.position.setY(2);
 scene.add(light);
+
 //Our animation loop
-let clock = new THREE.Clock(); //Need to keep track of time elapsed
-                               //between frames
+let clock = new THREE.Clock(); //Need to keep track of time elapsed between frames
 function update() {
     let timeDelta = clock.getDelta();
     let rotationAmount = timeDelta * 0.5; //0.5 rotations per second
@@ -68,5 +73,5 @@ function onResize () {
 
 window.addEventListener('resize', onResize);
 window.addEventListener('wheel', function(event) {
-            event.preventDefault();
+    event.preventDefault();
 }, {passive: false, capture: true});
