@@ -38,7 +38,7 @@ export default function main() {
         1.5 * sphereRadius //Depth
     );
     let cubeMaterial = new THREE.MeshLambertMaterial({
-        color: 0x00FF00 //Green
+        color: 0xFFFF00 //Green
     });
     let cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
     
